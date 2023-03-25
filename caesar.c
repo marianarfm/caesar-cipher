@@ -2,33 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-int encryptToFile(FILE *f, char* str, int key) {
-  while (*str) {
-    if (*str >= 'A' && *str <= 'Z') {
-      *str = (*str - 'A' + key) % 26 + 'A';
-      fputc(*str, f);
-    } else if (*str >= 'a' && *str <= 'z') {
-      *str = (*str - 'a' + key) % 26 + 'a';
-      fputc(*str, f);
-    } else fputc(*str, f);
-    str++;
-  }
-  return 0;
-}
-
-int decryptToFile(FILE *f, char* str, int key) {
-  while (*str) {
-    if (*str >= 'A' && *str <= 'Z') {
-      *str = (*str - 'A' + 26 - key) % 26 + 'A';
-      fputc(*str, f);
-    } else if (*str >= 'a' && *str <= 'z') {
-      *str = (*str - 'a' + 26 - key) % 26 + 'a';
-      fputc(*str, f);
-    } else fputc(*str, f);
-    str++;
-  }
-  return 0;
-}
+int encryptToFile(FILE *f, char* str, int key);
+int decryptToFile(FILE *f, char* str, int key);
 
 int main(int argc, char* argv[]) {
   int key = atoi(argv[2]);
@@ -62,7 +37,7 @@ int main(int argc, char* argv[]) {
   while (fgetc(finput) != EOF) {
     fsize++;
   }
-  str = (char*)malloc(sizeof(char) * fsize + 1); // + 1 added to fit the string terminator \0
+  str = (char*)malloc(sizeof(char) * fsize + 1);
   if (str == NULL) {
     printf("Error allocating memory\n");
     return 1;
@@ -98,4 +73,32 @@ int main(int argc, char* argv[]) {
   fclose(foutput);
   free(str);
   return 0;
+}
+
+int encryptToFile(FILE *f, char* str, int key) {
+  while (*str) {
+    if (*str >= 'A' && *str <= 'Z') {
+      *str = (*str - 'A' + key) % 26 + 'A';
+      fputc(*str, f);
+    } else if (*str >= 'a' && *str <= 'z') {
+      *str = (*str - 'a' + key) % 26 + 'a';
+      fputc(*str, f);
+    } else fputc(*str, f);
+    str++;
+  }
+  if (ferror(f) != 0) return 1; else return 0;
+}
+
+int decryptToFile(FILE *f, char* str, int key) {
+  while (*str) {
+    if (*str >= 'A' && *str <= 'Z') {
+      *str = (*str - 'A' + 26 - key) % 26 + 'A';
+      fputc(*str, f);
+    } else if (*str >= 'a' && *str <= 'z') {
+      *str = (*str - 'a' + 26 - key) % 26 + 'a';
+      fputc(*str, f);
+    } else fputc(*str, f);
+    str++;
+  }
+  if (ferror(f) != 0) return 1; else return 0;
 }
