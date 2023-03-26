@@ -3,7 +3,7 @@ Named after Roman general Julius Caesar, who used it for protecting corresponden
 
 This code was developed as a casual exercise in learning basic file manipulation in the C language.
 # Usage
-Open your operational system's CLI and navigate to the directory containing the project files, then type `gcc caesar.c -o caesar` to compile the source code. To run it, enter the following:
+Open your operational system's command-line shell and navigate to the directory containing the project files, then type `gcc caesar.c -o caesar` to compile the source code. To run it, enter the following:
 
 `./caesar [ACTION] [KEY] [TARGET] [OUTPUT]`
 
