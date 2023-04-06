@@ -1,5 +1,5 @@
 # Uso
-Abra o shell de linha de comando do seu sistema operacional e navegue até o diretório que contém os arquivos do projeto e digite `gcc caesar.c -o caesar` para compilar o código-fonte. Para executá-lo, execute o seguinte:
+Abra o shell de linha de comando do seu sistema operacional e navegue até o diretório que contém os arquivos do projeto e digite `gcc caesar.c -o caesar` para compilar o código-fonte. Para executá-lo, digite o seguinte:
 
     ./caesar [TASK] [KEY] [MESSAGE] [OUTPUT]
 
