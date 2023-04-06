@@ -11,5 +11,3 @@ Open your operational system's command-line shell and navigate to the directory 
 Example command:
 
     ./caesar d 3 test.txt output.txt
-    
-(All generated files will be in the same directory as the source code.)
