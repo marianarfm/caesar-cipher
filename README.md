@@ -5,7 +5,7 @@ Open your operational system's command-line shell and navigate to the directory 
 
 - For the `[TASK]` argument, type `e` for encrypting or `d` for decrypting
 - For the `[KEY]` argument, type an integer from 1 to 25
-- For the `[MESSAGE]` argument, type the filename containg the text you want to encrypt or decrypt
+- For the `[MESSAGE]` argument, type the filename containing the text you want to encrypt or decrypt
 - For the `[OUTPUT]` argument, type the filename for the new file that will be created containing your encrypted or decrypted message
 
 Example command:
